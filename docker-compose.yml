@@ -11,8 +11,9 @@ services:
     - MYSQL_DATABASE=petclinic
    volumes:
     - "./conf.d:/etc/mysql/conf.d:rw"
+    - "./conf.d/data:/var/lib/mysql"
   spring:
-    image: apetrovya/spring-petclinic:1.2.2
+    image: apetrovya/spring-petclinic:1.2.7
     ports:
      - "8080:8080"
     networks:
