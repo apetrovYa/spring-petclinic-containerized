@@ -12,5 +12,5 @@ RUN apt-get install git && \
 
 ENV REPOSITORY="https://github.com/apetrovYa/spring-petclinic-containerized.git"
 RUN git clone ${REPOSITORY}
-WORKDIR /opt/spring-petclinic 
+WORKDIR /opt/spring-petclinic-containerized 
 CMD ["./mvnw","spring-boot:run"]
