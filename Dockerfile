@@ -1,6 +1,6 @@
 FROM openjdk:8u151-jdk
 LABEL maintainer="Andrei Petrov <apetrov.ya@yandex.ru>"
-LABEL version=1.2.3
+LABEL version=1.2.4
 EXPOSE 8080
 WORKDIR /opt
 RUN apt-get install git && \
