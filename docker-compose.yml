@@ -1,9 +1,24 @@
-mysql:
-  image: mysql
-  ports:
+version: '3'
+services:
+  mysql:
+   image: mysql
+   ports:
     - "3306:3306"
-  environment:
+   networks:
+    - petclinic
+   environment:
     - MYSQL_ROOT_PASSWORD=root
     - MYSQL_DATABASE=test
-  volumes:
-    - "./conf.d:/etc/mysql/conf.d:ro"
+   volumes:
+    - "./conf.d:/etc/mysql/conf.d:rw"
+  spring:
+    image: apetrovya/spring-petclinic:1.1.0
+    ports:
+     - "8080:8080"
+    networks:
+     - petclinic
+    depends_on:
+     - mysql
+networks:
+  petclinic:
+    
