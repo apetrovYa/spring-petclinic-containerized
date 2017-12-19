@@ -2,24 +2,25 @@ version: '3'
 services:
   mysql:
    image: mysql:5.7.8
-   ports:
-    - "3306:3306"
-   networks:
-    - petclinic
+   #ports:
+   # - "3306:3306"
+   #networks:
+   # - petclinic
+   network_mode: host
    environment:
     - MYSQL_ROOT_PASSWORD=petclinic
     - MYSQL_DATABASE=petclinic
    volumes:
     - "./conf.d:/etc/mysql/conf.d:rw"
     - "./conf.d/data:/var/lib/mysql"
-  spring:
-    image: apetrovya/spring-petclinic:1.2.7
-    ports:
-     - "8080:8080"
-    networks:
-     - petclinic
-    depends_on:
-     - mysql
-networks:
-  petclinic:
+  #spring:
+  #  image: apetrovya/spring-petclinic:1.2.7
+  #  ports:
+  #   - "8080:8080"
+  #  networks:
+  #   - petclinic
+  #  depends_on:
+  #   - mysql
+#networks:
+#  petclinic:
     
