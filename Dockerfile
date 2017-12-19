@@ -11,6 +11,8 @@ RUN apt-get install git && \
     mv apache-maven-3.3.9 maven
 
 ENV REPOSITORY="https://github.com/apetrovYa/spring-petclinic-containerized.git"
-RUN git clone ${REPOSITORY}
-WORKDIR /opt/spring-petclinic-containerized 
+USER root:root
+RUN git clone ${REPOSITORY} && chown -R root /opt/spring-petclinic-containerized
+WORKDIR /opt/spring-petclinic-containerized
+
 CMD ["./mvnw","spring-boot:run"]

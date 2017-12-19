@@ -12,7 +12,7 @@ services:
    volumes:
     - "./conf.d:/etc/mysql/conf.d:rw"
   spring:
-    image: apetrovya/spring-petclinic:1.1.0
+    image: apetrovya/spring-petclinic:1.1.4
     ports:
      - "8080:8080"
     networks:
